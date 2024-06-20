@@ -1,0 +1,13 @@
+// Install node (to be able to run npm commands)
+
+// Verify node installation 
+npm -v
+
+// Install Phaser
+npm install phaser@v3.80.1
+
+// Install http-server OR Install live-server extension for VS Code
+npm install --global http-server
+
+// Run http-server OR live-server
+
