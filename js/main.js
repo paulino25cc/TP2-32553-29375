@@ -24,6 +24,7 @@ window.onload = function () {
     let coinsText;
     let gameOverText;
     let pauseText;
+    let menuText;
     let netTimerText;
     let shopText;
     let boostText;
@@ -47,8 +48,8 @@ window.onload = function () {
     let netTime = 5;
 
     let shopItemsConfig = [
-        { name: 'Minhocanzol', cost: 50, speed: 200, texture: 'hook2', scale: 0.1 },
-        { name: 'Isco Alegre', cost: 100, speed: 250, texture: 'hook3', scale: 0.1 }
+        { name: 'Minhocanzol', cost: 50, speed: 250, texture: 'hook2', scale: 0.1 },
+        { name: 'Isco Alegre', cost: 100, speed: 300, texture: 'hook3', scale: 0.1 }
     ];
 
     let boostItemsConfig = [
@@ -77,6 +78,7 @@ window.onload = function () {
     }
 
     function create() {
+    
         isGameOver = false;
         // Adicionar o fundo e ajustar a escala
         const background = this.add.image(window.innerWidth / 2, window.innerHeight / 2, 'background');
@@ -98,6 +100,8 @@ window.onload = function () {
 
         // Adicionar texto para as moedas
         coinsText = this.add.text(window.innerWidth - 100, 16, ' moedas: ' + coins, { fontFamily: 'Dinofiles', fontSize: 42, color: '#FF7200' }).setOrigin(1, 0);
+
+        menuText = this.add.text(150, 540, 'Menu: \nPausa-"ESC" \nShop-"S"\nBoosts-"B"\nRestart-"R" ', { fontFamily: 'Dinofiles', fontSize: 20, color: '#FFFFFF' }).setOrigin(1, 0);
 
         // Adicionar texto de game over (inicialmente invisível)
         gameOverText = this.add.text(window.innerWidth / 2, window.innerHeight / 2, 'Game Over', { fontFamily: 'Dinofiles', fontSize: 64, color: '#FF0000' });
@@ -138,7 +142,7 @@ window.onload = function () {
         boostItems = this.add.group();
 
         boostItemsConfig.forEach((item, index) => {
-            const itemText = this.add.text(window.innerWidth / 2, window.innerHeight / 2 -50 + index * 70, `${item.name} (${item.cost} moedas) + Nível ${item.level}/${item.maxLevel}`, { fontFamily: 'Dinofiles', fontSize: 30, color: '#FF7200' })
+            const itemText = this.add.text(window.innerWidth / 2, window.innerHeight / 2 -50 + index * 70, `${item.name} (${item.cost} moedas) + Nivel ${item.level}/${item.maxLevel}`, { fontFamily: 'Dinofiles', fontSize: 30, color: '#FF7200' })
                 .setOrigin(0.5)
                 .setInteractive()
                 .on('pointerdown', () => incrementBoost.call(this, item, itemText));
